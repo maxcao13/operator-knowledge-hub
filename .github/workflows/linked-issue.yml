@@ -18,6 +18,5 @@ jobs:
         id: verify_issue_reference
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Report no referenced issue
-        if: steps.verify_issue_reference.outputs.has_linked_issues != 'true'
-        run: exit 1;
+        with:
+          message: "An issue should be reference in this PR!"
