@@ -16,12 +16,12 @@ print_error() {
 }
 
 on_exit() {
-  cd ${CURRENT_PWD}
   if [[ $? -eq 0 ]]; then 
     print_message "Done."
   else
     print_error "An error has occurred during installing operator-sdk"
   fi
+  cd ${CURRENT_PWD}
 }
 
 exit_on_download_fail() {
