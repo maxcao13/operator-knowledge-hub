@@ -68,6 +68,7 @@ Any changes to go source files requires building a operator image and modify `OP
 IMAGE_VERSION="2.2.0-dev" # Tag
 IMAGE_NAMESPACE="quay.io/thvo" # Quay registry
 OPERATOR_NAME="cryostat-operator"
+DEPLOY_NAMESPLACE="default" 
 
 # Build and push the image to remote registry
 make oci-build && podman image prune -f && podman push $IMAGE_NAMESPACE/cryostat-operator:$IMAGE_VERSION
