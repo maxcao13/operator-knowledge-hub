@@ -64,7 +64,8 @@ Any changes to go source files requires building a operator image and modify `OP
 > If you make changes to the Go sources, you'd need to build and push a custom operator image and pass that to make deploy with the OPERATOR_IMG variable. 
 
 ```bash
-# Setting up env, (these are set to defaults in the operator Makefile, overwrite with these values in your shell or in the Makefile itself)
+# Before building and deploying
+# Setting up env (set to default values in your operator Makefile, overwrite with these values in your shell or in the Makefile itself)
 export IMAGE_VERSION="2.2.0-dev" # Tag
 export IMAGE_NAMESPACE="quay.io/{YOUR_QUAY_USERNAME}" # Quay registry, e.g. "quay.io/thvo" or "quay.io/macao"
 export OPERATOR_NAME="cryostat-operator"
@@ -76,7 +77,7 @@ podman image prune -f && \
 podman push $IMAGE_NAMESPACE/$OPERATOR_NAME:$IMAGE_VERSION
 
 # Deploy the running cluster
-make deploy DEPLOY_NAMESPACE=default OPERATOR_IMG=$IMAGE_NAMESPACE/$OPERATOR_NAME:$IMAGE_VERSION # or just `make deploy` if env variables set correctly
+make deploy DEPLOY_NAMESPACE=default OPERATOR_IMG=$IMAGE_NAMESPACE/$OPERATOR_NAME:$IMAGE_VERSION # or just `make deploy` if env variables were exported
 ```
 
 ## Monitoring
