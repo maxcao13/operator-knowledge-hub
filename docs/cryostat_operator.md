@@ -76,7 +76,7 @@ podman image prune -f && \
 podman push $IMAGE_NAMESPACE/$OPERATOR_NAME:$IMAGE_VERSION
 
 # Deploy the running cluster
-make deploy OPERATOR_IMG=$IMAGE_NAMESPACE/$OPERATOR_NAME:$IMAGE_VERSION # or just `make deploy` if env variables set correctly
+make deploy DEPLOY_NAMESPACE=default OPERATOR_IMG=$IMAGE_NAMESPACE/$OPERATOR_NAME:$IMAGE_VERSION # or just `make deploy` if env variables set correctly
 ```
 
 ## Monitoring
