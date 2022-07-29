@@ -148,7 +148,7 @@ _Note: crc is known to be very CPU and memory intensive_
 	make create_cryostat_cr 
 	```
 	Congratulations! You can now see your deployed `Cryostat Operator` under the `Operators` tab under `Installed Operators`. 
-	![](img/openshift-cryostat-bundle.png)  
+	![OpenShift Console Dashboard showing Cryostat Operator installed](img/openshift-cryostat-bundle.png)  
 
 4. To stop all crc, deployments, and pods cleanly
 	```bash
