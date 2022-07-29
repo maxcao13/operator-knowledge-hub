@@ -129,8 +129,9 @@ _Note: crc is known to be very CPU and memory intensive_
 3. Run scripts with your changes in `cryostat-operator` directory.
 	```bash
 	# Set env variables again
-	export OPERATOR_IMG="quay.io/$YOUR_QUAY_USERNAME/cryostat-operator:latest"
-	export BUNDLE_IMG="quay.io/$YOUR_QUAY_USERNAME/cryostat-operator-bundle:latest"
+	export IMAGE_VERSION="2.2.0-dev" # current operator version
+	export OPERATOR_IMG="quay.io/$YOUR_QUAY_USERNAME/cryostat-operator:$IMAGE_VERSION"
+	export BUNDLE_IMG="quay.io/$YOUR_QUAY_USERNAME/cryostat-operator-bundle:$IMAGE_VERSION"
 
 	# Build and push image to remote registry
 	make oci-build
@@ -147,11 +148,14 @@ _Note: crc is known to be very CPU and memory intensive_
 	make create_cryostat_cr 
 	```
 	Congratulations! You can now see your deployed `Cryostat Operator` under the `Operators` tab under `Installed Operators`. 
-	![](openshift-cryostat-bundle.png)  
+	![](img/openshift-cryostat-bundle.png)  
 
 4. To stop all crc, deployments, and pods cleanly
 	```bash
 	$ crc stop
+
+	# All resources will still be on disk the next time crc is started, unless crc delete is run
+	$ crc delete # optional
 	```
 ## Monitoring
 
